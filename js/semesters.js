@@ -8,6 +8,7 @@ var semesterEdit;
 var value2semesterEdit;
 var checkValue;
 var semesterCancel;
+var semesterSave;
 
 $(document).ready(function(){
 
@@ -28,6 +29,11 @@ $('body').on('click', '.semester-edit', function() {
 $('body').on('click', '.semester-cancel', function() {
         semesterCancel = $(this).attr('edit');
         cancelSemesterEntry(semesterCancel);
+});
+
+$('body').on('click', '.semester-save', function() {
+        semesterSave = $(this).attr('edit');
+        saveSemesterEntry(semesterSave, semester2show);
 });
 
 $('body').on('click', '#submitNewSemester', function() {
@@ -54,6 +60,26 @@ $('body').on('click', '.semester-click', function() {
 
 
 });
+
+function saveSemesterEntry(option, showId) {
+	var idName = 'semester-edit-' + option + '-input';
+	var value = $('#' + idName).val();
+
+	showLoading();
+  		$.ajax({
+      		type: "post",
+      		url: "php/editChangeSemester.php",
+      		dataType: 'json',
+      		data: {'type': option, 'value': value},
+      		success: function (response) {
+      			$( "#filler-sidebar" ).load( "ajax/semesters.php" );
+        		$( "#filler-body2" ).load( "ajax/oneSemester.php", {'semester_id':showId}, function() {
+                		hideLoading(); 
+                	});
+		}
+	});
+
+}
 
 function cancelSemesterEntry(option) {
 	var idName = 'semester-edit-' + option;
