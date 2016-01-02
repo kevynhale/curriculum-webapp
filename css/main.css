@@ -364,3 +364,33 @@ transition: background-image 0.2s ease-in-out;
 background-image:url("../images/pencil41.png");
 cursor:pointer;
 }
+.semester-cancel {
+background-image:url("../images/forbidden22-light.png");
+background-size: 15px 15px;
+background-repeat: no-repeat;
+min-height:15px;
+min-width:15px;
+display:inline-block;
+margin-left:3px;
+transition: background-image 0.2s ease-in-out;
+display:none;
+}
+.semester-cancel:hover {
+background-image:url("../images/forbidden22.png");
+cursor:pointer;
+}
+.semester-save {
+background-image:url("../images/save31-light.png");
+background-size: 15px 15px;
+background-repeat: no-repeat;
+min-height:15px;
+min-width:15px;
+display:inline-block;
+margin-left:3px;
+transition: background-image 0.2s ease-in-out;
+display: none;
+}
+.semester-save:hover {
+background-image:url("../images/save31.png");
+cursor:pointer;
+}

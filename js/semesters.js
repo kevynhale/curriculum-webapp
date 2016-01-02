@@ -62,6 +62,9 @@ function editSemesterEntry (option) {
 
         }
         $('#' + checkValue + '-input').select();
+	$(".semester-save[edit='" + option + "']").css("display","inline-block")
+	$(".semester-cancel[edit='" + option + "']").css("display","inline-block")
+	$(".semester-edit[edit='" + option + "']").css("display","none")
 }
 
 
