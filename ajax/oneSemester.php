@@ -26,8 +26,8 @@ $result = $mysqli->query($query);
         <div class="semester-title">Start:</div>
         <div class='semester-finish' id="semester-edit-start" value="<?php echo $row['start']; ?>" type="date">   <?php echo $row['start']; ?>  </div>
         <div class="semester-edit" edit="start"></div>
-        <div class="semester-cancel" edit="save"></div>
-        <div class="semester-save" edit="save"></div><br>
+        <div class="semester-cancel" edit="start"></div>
+        <div class="semester-save" edit="start"></div><br>
         <div class="semester-title">Finish:</div>
         <div class='semester-finish' id="semester-edit-finish" value="<?php echo $row['finish']; ?>" type="date">   <?php echo $row['finish']; ?>  </div>
         <div class="semester-edit" edit="finish"></div>

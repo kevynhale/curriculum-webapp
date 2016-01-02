@@ -7,6 +7,7 @@ var semester2show;
 var semesterEdit;
 var value2semesterEdit;
 var checkValue;
+var semesterCancel;
 
 $(document).ready(function(){
 
@@ -23,6 +24,11 @@ $('body').on('click', '.semester-edit', function() {
         editSemesterEntry(semesterEdit);
 });
 
+
+$('body').on('click', '.semester-cancel', function() {
+        semesterCancel = $(this).attr('edit');
+        cancelSemesterEntry(semesterCancel);
+});
 
 $('body').on('click', '#submitNewSemester', function() {
 semesterTitle = $('#semester-title').val();
@@ -48,6 +54,15 @@ $('body').on('click', '.semester-click', function() {
 
 
 });
+
+function cancelSemesterEntry(option) {
+	var idName = 'semester-edit-' + option;
+	var theDiv = $('#' + idName).attr('value');
+	document.getElementById(idName).innerHTML = theDiv;
+	$(".semester-save[edit='" + option + "']").css("display","none")
+	$(".semester-cancel[edit='" + option + "']").css("display","none")
+	$(".semester-edit[edit='" + option + "']").css("display","inline-block")
+}
 
 
 function editSemesterEntry (option) {
