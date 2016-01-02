@@ -1,0 +1,46 @@
+div#container {
+    margin: 50px auto;
+    width: 300px;
+    min-height: 200px;
+    background-color: #E5EBD8;
+    padding-bottom:30px;
+}
+
+div#img-container {
+    width: 50px;
+    height: 50px;
+    margin: 0px auto;
+    padding-top: 10px;
+    /* border-radius: 50px; */
+}
+
+img {
+border-radius: 30px;
+}
+
+.abcRioButton {
+margin: 0 auto;
+}
+
+div.info-container {
+    text-align: center;
+    margin: 20px;
+    color: #757E62;
+    font-family: sans-serif;
+}
+div.failed-container {
+color: red;
+}
+.button {
+    margin: 0 auto;
+    text-align: center;
+    background-color: white;
+    width: 140px;
+    padding-top: 7px;
+    color: #757575;
+    padding-bottom: 7px;
+    font-family: Roboto,arial,sans-serif;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.25);
+    transition: background-color .218s,border-color .218s,box-shadow .218s;
+    opacity:.9;
+}
