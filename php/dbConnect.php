@@ -1,13 +1,13 @@
 <?php
 
 $filename = "../dbconnect-info.php";
-$filename2 = "../php/dbconnect-info.php";
+$filename2 = "../../../dbconnect-info.php";
 
 if (file_exists($filename)) {
      include("../dbconnect-info.php");
  } 
  else if (file_exists($filename2)) {
-      include("../php/dbconnect-info.php");
+      include("../../../dbconnect-info.php");
  }
  
  else {
