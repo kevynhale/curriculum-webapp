@@ -20,7 +20,7 @@ $result = $mysqli->query("SELECT name, class_id FROM class_list WHERE user_id='"
     while($row = $result->fetch_assoc()) {
     ?>
     
-    <div class="header-sub add-one clickable">
+	    <div class="header-sub add-one clickable class-item" class-id='<?php echo $row["class_id"]; ?>'>
     <?php echo $row["name"]; ?>
     <div class="delete-sidebar-row delete-class clickable" delete='<?php echo $row["class_id"]; ?>'>X</div>
     </div>

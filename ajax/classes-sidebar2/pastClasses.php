@@ -25,7 +25,7 @@ $result = $mysqli->query("SELECT name FROM semester_list WHERE user_id='".$id."'
                             $class = $row2["name"];
                             $classid = $row2["class_id"];
                     ?>
-                            <div class="header-sub add-one clickable">
+			    <div class="header-sub add-one clickable class-item" class-id='<?php echo $row["class_id"]; ?>'>
                             <?php echo $class; ?>
                             <div class="delete-sidebar-row delete-class clickable" delete='<?php echo $classid; ?>'>X</div>
                             </div>

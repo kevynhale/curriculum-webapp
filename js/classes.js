@@ -3,6 +3,7 @@ var classSemester;
 var ClassCredits;
 var classObjective;
 var class2delete;
+var classId;
 
 $(document).ready(function(){
 $('body').on('click', '#newClass', function() {
@@ -12,6 +13,12 @@ $('body').on('click', '#newClass', function() {
                 } );
 	toggle_visibility_inline('filler-body3')
 });
+
+$('body').on('click', '.class-item', function() {
+classId = $(this).attr('class-id');
+showClassInfo(classId);
+});
+
 
 $('body').on('click', '#submitNewClass', function() {
 classTitle = $('#class-title').val();
@@ -74,3 +81,14 @@ showLoading();
       }
   });
 }
+
+function showClassInfo(id) {
+	showLoading();
+      	$( "#filler-body3" ).load( "ajax/oneClass.php", {'class_id':id}, function () {
+		toggle_visibility_inline('filler-body3')
+        	hideLoading();
+	});
+
+
+}
+
