@@ -29,10 +29,10 @@ $result = $mysqli->query($query);
         <div class="class-cancel" edit="finish"></div>
         <div class="class-save" edit="finish"></div><br>
         <div class="class-title">Review:</div><br>
-        <div class='class-finish' id="class-edit-overview" value="<?php echo $row['objective']; ?>" type="textarea">   <?php echo $row['objective']; ?>  </div>
-        <div class="class-edit" edit="overview"></div>
-        <div class="class-cancel" edit="overview"></div>
-        <div class="class-save" edit="overview"></div><br>
+        <div class='class-finish' id="class-edit-objective" value="<?php echo $row['objective']; ?>" type="textarea">   <?php echo $row['objective']; ?>  </div>
+        <div class="class-edit" edit="objective"></div>
+        <div class="class-cancel" edit="objective"></div>
+        <div class="class-save" edit="objective"></div><br>
                 
         
         

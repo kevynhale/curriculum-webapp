@@ -4,9 +4,32 @@ var ClassCredits;
 var classObjective;
 var class2delete;
 var classId;
+var classEdit;
+var classCancel;
+var classSave;
 
 $(document).ready(function(){
+
+$('body').on('click', '.class-edit', function() {
+        classEdit = $(this).attr('edit');
+        editClassEntry(classEdit);
+});
+
+
+$('body').on('click', '.class-cancel', function() {
+        classCancel = $(this).attr('edit');
+        cancelClassEntry(classCancel);
+});
+
+$('body').on('click', '.class-save', function() {
+        classSave = $(this).attr('edit');
+        saveClassEntry(classSave, classId);
+});
+
+
+
 $('body').on('click', '#newClass', function() {
+	resetClassPage()
         showLoading();
 	$("#filler-body3").load( "ajax/newClasses.php", function() {
                 hideLoading(); 
@@ -15,6 +38,7 @@ $('body').on('click', '#newClass', function() {
 });
 
 $('body').on('click', '.class-item', function() {
+resetClassPage()
 classId = $(this).attr('class-id');
 showClassInfo(classId);
 });
@@ -92,3 +116,55 @@ function showClassInfo(id) {
 
 }
 
+function saveClassEntry(option, showId) {
+        var idName = 'class-edit-' + option + '-input';
+        var value = $('#' + idName).val();
+
+        showLoading();
+                $.ajax({
+                type: "post",
+                url: "php/editChangeClass.php",
+                dataType: 'json',
+                data: {'type': option, 'value': value},
+                success: function (response) {
+                        $( "#filler-sidebar" ).load( "ajax/classs.php" );
+                        $( "#filler-body3" ).load( "ajax/oneClass.php", {'class_id':showId}, function() {
+                                hideLoading();
+                        });
+                }
+        });
+
+}
+
+function cancelClassEntry(option) {
+        var idName = 'class-edit-' + option;
+        var theDiv = $('#' + idName).attr('value');
+        document.getElementById(idName).innerHTML = theDiv;
+        $(".class-save[edit='" + option + "']").css("display","none")
+        $(".class-cancel[edit='" + option + "']").css("display","none")
+        $(".class-edit[edit='" + option + "']").css("display","inline-block")
+}
+
+
+function editClassEntry (option) {
+        checkValue = 'class-edit-' + option;
+        value2classEdit = $('#' + checkValue).attr('value');
+        var inputType = $('#' + checkValue).attr('type');
+        if (inputType == 'textarea') {
+        document.getElementById(checkValue).innerHTML = '<textarea id="' + checkValue + '-input">' + value2classEdit + '</textarea>';
+        }
+        else {
+        document.getElementById(checkValue).innerHTML = '<input type="' + inputType + '" value="' + value2classEdit + '" id="' + checkValue + '-input">';
+
+        }
+        $('#' + checkValue + '-input').select();
+        $(".class-save[edit='" + option + "']").css("display","inline-block")
+        $(".class-cancel[edit='" + option + "']").css("display","inline-block")
+        $(".class-edit[edit='" + option + "']").css("display","none")
+}
+
+
+function resetClassPage() {
+        document.getElementById('filler-body3').innerHTML = '';
+        document.getElementById('filler-body3').style.display = 'none';
+    }

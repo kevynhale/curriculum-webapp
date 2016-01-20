@@ -474,3 +474,32 @@ display: none;
 background-image:url("../images/save31.png");
 cursor:pointer;
 }
+.body-of-menu {
+	margin-top:20px;
+    background-color: #F4F5F2;
+}
+ul.navigator-list {
+    list-style: none;
+    display: inline-block;
+    margin: 0px;
+    padding: 0px;
+}
+.navigator-of-menu {
+    background-color: #EDF2E2;
+    border-bottom: 1px solid #57A0BD;
+}
+ul.navigator-list li {
+    display: inline-block;
+    padding: 5px;
+    background-color: #CFDBB6;
+    margin: 0px;
+    border-right: 2px solid #A7B689;
+color: #6E8933;
+transition: background-color .5s, border .5s, color .5s;
+    /* border: 0px; */
+}
+ul.navigator-list li:hover {
+    background-color: #57A0BD;
+    color: #B1D0DD;
+    border-right: 2px solid #578293;
+}

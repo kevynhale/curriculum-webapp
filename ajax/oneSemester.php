@@ -46,6 +46,19 @@ $result = $mysqli->query($query);
             }
     }
 ?>
+	<div class="body-of-menu">
+		<div class="navigator-of-menu">
+			<ul class="navigator-list">
+				<li class="clickable">
+					Goals
+				</li>
+
+				<li class="clickable">
+					Classes
+				</li>
+			</ul>
+		</div> <!-- end of div navigator-of-menu -->
+	</div> <!-- end of div body-of-menu -->
 </div> <!-- end of div semester-body -->
 </div> <!-- end of div new-form-container -->
 </div> <!-- end of div new-form -->
