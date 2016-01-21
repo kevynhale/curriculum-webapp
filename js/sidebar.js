@@ -53,32 +53,32 @@ $('body').on('click', '.show-semester-name', function() {
 function toggle_sidebar2_view(option) {
         showLoading();
         if (option == 'all') {
-                $( "#filler-sidebar2" ).load( "ajax/classes-sidebar2/allClasses.php", function() {
+                $( "#filler-sidebar2" ).load( "ajax/classes/allClasses.php", function() {
                 hideLoading(); 
                 }
                 );
         
         }
         else if (option == 'current') {
-                $( "#filler-sidebar2" ).load( "ajax/classes-sidebar2/currentClasses.php", function() {
+                $( "#filler-sidebar2" ).load( "ajax/classes/currentClasses.php", function() {
                 hideLoading(); 
                 });
         
         }
         else if (option == 'future') {
-                $( "#filler-sidebar2" ).load( "ajax/classes-sidebar2/futureClasses.php", function() {
+                $( "#filler-sidebar2" ).load( "ajax/classes/futureClasses.php", function() {
                 hideLoading(); 
                 });
         
         }
         else if (option == 'past') {
-                $( "#filler-sidebar2" ).load( "ajax/classes-sidebar2/pastClasses.php", function() {
+                $( "#filler-sidebar2" ).load( "ajax/classes/pastClasses.php", function() {
                 hideLoading(); 
                 });
         
         }
         else {
-                $( "#filler-sidebar2" ).load( "ajax/classes-sidebar2/semesterClasses.php", {'semester':option}, function() {
+                $( "#filler-sidebar2" ).load( "ajax/classes/semesterClasses.php", {'semester':option}, function() {
                 hideLoading(); 
                 });
         }

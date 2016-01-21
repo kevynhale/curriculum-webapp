@@ -33,7 +33,7 @@ $('body').on('click', 'ul.navigator-list li', function() {
 $('body').on('click', '#newSemester', function() {
 showLoading();
 resetSemesterPage()
-	$("#filler-body2").load( "ajax/newSemesters.php" );
+	$("#filler-body2").load( "ajax/semesters/newSemesters.php" );
 	toggle_visibility_inline('filler-body2')
         setTimeout(hideLoading, 500);
 });
@@ -84,14 +84,14 @@ function saveSemesterEntry(option, showId) {
 	var value = $('#' + idName).val();
 
 	showLoading();
-  		$.ajax({
+  		$.ajax/semesters({
       		type: "post",
       		url: "php/editChangeSemester.php",
       		dataType: 'json',
       		data: {'type': option, 'value': value},
       		success: function (response) {
-      			$( "#filler-sidebar" ).load( "ajax/semesters.php" );
-        		$( "#filler-body2" ).load( "ajax/oneSemester.php", {'semester_id':showId}, function() {
+      			$( "#filler-sidebar" ).load( "ajax/semesters/semesters.php" );
+        		$( "#filler-body2" ).load( "ajax/semesters/oneSemester.php", {'semester_id':showId}, function() {
                 		hideLoading(); 
                 	});
 		}
@@ -128,7 +128,7 @@ function editSemesterEntry (option) {
 
 
 function showSemester(option, view) {
-        $( "#filler-body2" ).load( "ajax/oneSemester.php", {'semester_id':option}, function() {
+        $( "#filler-body2" ).load( "ajax/semesters/oneSemester.php", {'semester_id':option}, function() {
                 hideLoading(); 
                 toggle_visibility_inline('filler-body2')
 		$('#' + view).toggleClass('navigator-list-selected')
@@ -141,14 +141,14 @@ function showSemester(option, view) {
 
 function deleteSemester(semester2delete) {
 showLoading();
-  $.ajax({
+  $.ajax/semesters({
       type: "post",
       url: "php/deleteSemester.php",
       dataType: 'json',
       data: {'title': semester2delete},
       success: function (response) {
       
-      $( "#filler-sidebar" ).load( "ajax/semesters.php" );
+      $( "#filler-sidebar" ).load( "ajax/semesters/semesters.php" );
       setTimeout(hideLoading, 1000);
         
         
@@ -159,15 +159,15 @@ showLoading();
 
 function submitNewSemester(semesterTitle, semesterStart, semesterFinish, semesterReview) {
 showLoading();
-  $.ajax({
+  $.ajax/semesters({
       type: "post",
       url: "php/submitNewSemester.php",
       dataType: 'json',
       data: {'title': semesterTitle, 'start': semesterStart, 'finish': semesterFinish, 'review':semesterReview},
       success: function (response) {
       
-      $( "#filler-body2" ).load( "ajax/newSemesters.php" );
-      $( "#filler-sidebar" ).load( "ajax/semesters.php" );
+      $( "#filler-body2" ).load( "ajax/semesters/newSemesters.php" );
+      $( "#filler-sidebar" ).load( "ajax/semesters/semesters.php" );
       setTimeout(hideLoading, 1000);
         
         
@@ -180,7 +180,7 @@ function resetSemesterPage() {
         document.getElementById('filler-body2').style.display = 'none';
     }
 function getSemesterListItem(page) {
-	$( ".body-of-content" ).load( "ajax/" + page + ".php", function() {
+	$( ".body-of-content" ).load( "ajax/semesters/" + page + ".php", function() {
 		hideLoading();
 });
 

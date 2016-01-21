@@ -61,7 +61,7 @@ subMenu = $(this).attr('item');
 function showDashboard() {
 showLoading();
 var div = document.getElementById('filler-sidebar');
-$( "#filler-sidebar" ).load( "ajax/dashboard.php", function() {
+$( "#filler-sidebar" ).load( "ajax/dashboard/dashboard.php", function() {
                 hideLoading(); 
                 } );
 toggle_visibility_inline('filler-sidebar')
@@ -70,7 +70,7 @@ toggle_visibility_inline('filler-sidebar')
 function showSemesters() {
 showLoading();
 var div = document.getElementById('filler-sidebar');
-$( "#filler-sidebar" ).load( "ajax/semesters.php", function() {
+$( "#filler-sidebar" ).load( "ajax/semesters/semesters.php", function() {
                 hideLoading(); 
                 } );
 toggle_visibility_inline('filler-sidebar')
@@ -78,7 +78,7 @@ toggle_visibility_inline('filler-sidebar')
 function showClasses() {
 showLoading();
 var div = document.getElementById('filler-sidebar');
-$( "#filler-sidebar" ).load( "ajax/classes.php", function () {
+$( "#filler-sidebar" ).load( "ajax/classes/classes.php", function () {
         keepVisible ('hide-current', 'hide-future', 'hide-past');
         hideLoading();
 });
@@ -91,7 +91,7 @@ toggle_visibility_inline('filler-sidebar2')
 function showNotes() {
 showLoading();
 var div = document.getElementById('filler-sidebar');
-$( "#filler-sidebar" ).load( "ajax/notes.php", function() {
+$( "#filler-sidebar" ).load( "ajax/notes/notes.php", function() {
                 hideLoading(); 
                 } );
 toggle_visibility_inline('filler-sidebar')
@@ -99,7 +99,7 @@ toggle_visibility_inline('filler-sidebar')
 function showFlashcards() {
 showLoading();
 var div = document.getElementById('filler-sidebar');
-$( "#filler-sidebar" ).load( "ajax/flashcards.php", function() {
+$( "#filler-sidebar" ).load( "ajax/flashcards/flashcards.php", function() {
                 hideLoading(); 
                 } );
 toggle_visibility_inline('filler-sidebar')
@@ -107,7 +107,7 @@ toggle_visibility_inline('filler-sidebar')
 function showExams() {
 showLoading();
 var div = document.getElementById('filler-sidebar');
-$( "#filler-sidebar" ).load( "ajax/exams.php", function() {
+$( "#filler-sidebar" ).load( "ajax/exams/exams.php", function() {
                 hideLoading(); 
                 } );
 toggle_visibility_inline('filler-sidebar')
@@ -116,7 +116,7 @@ function showCalendars() {
 showLoading();
 var div = document.getElemen
 tById('filler-sidebar');
-$( "#filler-sidebar" ).load( "ajax/calendars.php", function() {
+$( "#filler-sidebar" ).load( "ajax/calendars/calendars.php", function() {
                 hideLoading(); 
                 } );
 toggle_visibility_inline('filler-sidebar')

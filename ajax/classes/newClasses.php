@@ -1,4 +1,4 @@
-<?php include("../authenticate.php"); ?>
+<?php include("../../authenticate.php"); ?>
 <div id="new-form3">
         <div id="new-form-container">
         <div class="new-form-entry">
@@ -9,7 +9,7 @@
         <p>Semester</p>
         <select id="class-semester" class="clickable">
                 <?php 
-                    include("../php/dbConnect.php");
+                    include("../../php/dbConnect.php");
                     $id = $_SESSION['id'];
 
                         $result = $mysqli->query("SELECT name FROM semester_list WHERE user_id='".$id."'");

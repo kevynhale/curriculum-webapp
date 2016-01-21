@@ -31,7 +31,7 @@ $('body').on('click', '.class-save', function() {
 $('body').on('click', '#newClass', function() {
 	resetClassPage()
         showLoading();
-	$("#filler-body3").load( "ajax/newClasses.php", function() {
+	$("#filler-body3").load( "ajax/classes/newClasses.php", function() {
                 hideLoading(); 
                 } );
 	toggle_visibility_inline('filler-body3')
@@ -63,18 +63,18 @@ deleteClass(class2delete);
 
 function deleteClass(class2delete) {
 showLoading();
-  $.ajax({
+  $.ajax/classes({
       type: "post",
       url: "php/deleteClass.php",
       dataType: 'json',
       data: {'title': class2delete},
       success: function (response) {
       
-      $( "#filler-sidebar" ).load( "ajax/classes.php", function () {
+      $( "#filler-sidebar" ).load( "ajax/classes/classes.php", function () {
         keepVisible ('hide-current', 'hide-future', 'hide-past');
         hideLoading();
 });
-      $( "#filler-body2" ).load( "ajax/newClasses.php" );
+      $( "#filler-body2" ).load( "ajax/classes/newClasses.php" );
       toggle_sidebar2_view(sidebar2Status);
         
         
@@ -85,21 +85,21 @@ showLoading();
 
 function submitNewClass(classTitle, classSemester, classCredits, classObjective) {
 showLoading();
-  $.ajax({
+  $.ajax/classes({
       type: "post",
       url: "php/submitNewClass.php",
       dataType: 'json',
       data: {'title': classTitle, 'semester': classSemester, 'credits': classCredits, 'objective':classObjective},
       success: function (response) {
       
-      $( "#filler-sidebar" ).load( "ajax/classes.php", function () {
+      $( "#filler-sidebar" ).load( "ajax/classes/classes.php", function () {
         keepVisible ('hide-current', 'hide-future', 'hide-past');
         hideLoading();
 });
       sidebar2Status = classSemester;
       toggle_sidebar2_view(sidebar2Status);
       document.getElementById('filler-body3').innerHTML = '';
-      $( "#filler-body3" ).load( "ajax/newClasses.php" );
+      $( "#filler-body3" ).load( "ajax/classes/newClasses.php" );
         
         
       }
@@ -108,7 +108,7 @@ showLoading();
 
 function showClassInfo(id) {
 	showLoading();
-      	$( "#filler-body3" ).load( "ajax/oneClass.php", {'class_id':id}, function () {
+      	$( "#filler-body3" ).load( "ajax/classes/oneClass.php", {'class_id':id}, function () {
 		toggle_visibility_inline('filler-body3')
         	hideLoading();
 	});
@@ -121,14 +121,14 @@ function saveClassEntry(option, showId) {
         var value = $('#' + idName).val();
 
         showLoading();
-                $.ajax({
+                $.ajax/classes({
                 type: "post",
                 url: "php/editChangeClass.php",
                 dataType: 'json',
                 data: {'type': option, 'value': value},
                 success: function (response) {
-                        $( "#filler-sidebar" ).load( "ajax/classs.php" );
-                        $( "#filler-body3" ).load( "ajax/oneClass.php", {'class_id':showId}, function() {
+                        $( "#filler-sidebar" ).load( "ajax/classes/classs.php" );
+                        $( "#filler-body3" ).load( "ajax/classes/oneClass.php", {'class_id':showId}, function() {
                                 hideLoading();
                         });
                 }

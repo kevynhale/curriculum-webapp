@@ -1,9 +1,9 @@
-<?php include("../authenticate.php"); ?>
+<?php include("../../authenticate.php"); ?>
 <div class="header-title">Semesters</div>
 <div id="newSemester" class="header-sub header-sub-longer add-one clickable"><p class="add-new">+</p>Add Semester</div>
 <?php
 
-include("../php/dbConnect.php");
+include("../../php/dbConnect.php");
 $id = $_SESSION['id'];
 
 $result = $mysqli->query("SELECT name, semester_id FROM semester_list WHERE user_id='".$id."'");

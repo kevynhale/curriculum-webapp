@@ -1,10 +1,10 @@
-<?php include("../authenticate.php"); ?>
+<?php include("../../authenticate.php"); ?>
 <div id="new-form3">
 <div id="new-form-container">
 
 <?php
 
-include("../php/dbConnect.php");
+include("../../php/dbConnect.php");
 $id = $_SESSION['id'];
 if (isset($_REQUEST['class_id'])) { $class_id = $_REQUEST['class_id']; }
 

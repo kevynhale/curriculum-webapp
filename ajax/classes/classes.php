@@ -1,7 +1,7 @@
-<?php include("../authenticate.php"); ?>
+<?php include("../../authenticate.php"); ?>
 <?php
 
-include("../php/dbConnect.php");
+include("../../php/dbConnect.php");
 $id = $_SESSION['id'];
 $today = date("Y-m-d");
 
