@@ -53,6 +53,7 @@ background-color:#57A0BD;
 display:none;
 overflow-y: scroll;
 border-left: 1px solid #90C9DF;
+transition: all 2s linear;
 }
 #filler-sidebar2 {
 position: fixed;
@@ -498,7 +499,7 @@ color: #6E8933;
 transition: background-color .5s, border .5s, color .5s;
     /* border: 0px; */
 }
-ul.navigator-list li:hover {
+ul.navigator-list li:hover, li.clickable.navigator-list-selected {
     background-color: #57A0BD;
     color: #B1D0DD;
     border-right: 2px solid #578293;

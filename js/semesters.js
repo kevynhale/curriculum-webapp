@@ -9,8 +9,26 @@ var value2semesterEdit;
 var checkValue;
 var semesterCancel;
 var semesterSave;
+var semesterOptionsView = "semester-options-goals";
 
 $(document).ready(function(){
+$('body').on('mouseover', 'ul.navigator-list li', function() {
+                                 $("#" + semesterOptionsView).removeClass('navigator-list-selected');
+                                $(this).addClass('navigator-list-selected');
+        });
+$('body').on('mouseout', 'ul.navigator-list li', function() {
+                                $(this).removeClass('navigator-list-selected');
+                                 $("#" + semesterOptionsView).addClass('navigator-list-selected');
+        });
+$('body').on('click', 'ul.navigator-list li', function() {
+	showLoading();
+	$("#" + semesterOptionsView).removeClass('navigator-list-selected');
+        $(this).addClass('navigator-list-selected');
+	semesterOptionsView = $(this).attr('id');
+	var page = $("#" + semesterOptionsView).attr('page');
+	getSemesterListItem(page)
+});
+
 
 $('body').on('click', '#newSemester', function() {
 showLoading();
@@ -55,7 +73,7 @@ $('body').on('click', '.semester-click', function() {
         resetSemesterPage()
         showLoading();
         semester2show = $(this).attr('semester-id');
-        showSemester(semester2show);
+        showSemester(semester2show, semesterOptionsView);
 });
 
 
@@ -109,10 +127,13 @@ function editSemesterEntry (option) {
 }
 
 
-function showSemester(option) {
+function showSemester(option, view) {
         $( "#filler-body2" ).load( "ajax/oneSemester.php", {'semester_id':option}, function() {
                 hideLoading(); 
                 toggle_visibility_inline('filler-body2')
+		$('#' + view).toggleClass('navigator-list-selected')
+		var page = $("#" + view).attr('page');
+        	getSemesterListItem(page)
                 });
         
 }
@@ -158,3 +179,10 @@ function resetSemesterPage() {
         document.getElementById('filler-body2').innerHTML = '';
         document.getElementById('filler-body2').style.display = 'none';
     }
+function getSemesterListItem(page) {
+	$( ".body-of-content" ).load( "ajax/" + page + ".php", function() {
+		hideLoading();
+});
+
+
+}

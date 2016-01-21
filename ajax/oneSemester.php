@@ -49,15 +49,18 @@ $result = $mysqli->query($query);
 	<div class="body-of-menu">
 		<div class="navigator-of-menu">
 			<ul class="navigator-list">
-				<li class="clickable">
+				<li id="semester-options-goals" class="clickable" page="semesterGoals">
 					Goals
 				</li>
 
-				<li class="clickable">
+				<li id="semester-options-class" class="clickable" page="semesterClasses">
 					Classes
 				</li>
 			</ul>
 		</div> <!-- end of div navigator-of-menu -->
+		<div class="body-of-content">
+
+		</div> <!-- end of div body-of-content -->
 	</div> <!-- end of div body-of-menu -->
 </div> <!-- end of div semester-body -->
 </div> <!-- end of div new-form-container -->
