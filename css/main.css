@@ -504,3 +504,48 @@ ul.navigator-list li:hover, li.clickable.navigator-list-selected {
     color: #B1D0DD;
     border-right: 2px solid #578293;
 }
+.body-of-content {
+padding:10px;
+}
+ul#semester-goals-bullet {
+    display: inline-block;
+    list-style: none;
+    margin: 0px;
+    padding:0px;
+position: relative;
+    width: 100%;
+}
+div#semester-goals-header {
+    font-size: 20px;
+    padding: 5px;
+    background-color: #E3E3E3;
+    color: #447183;
+}
+
+.semester-goals-item {
+display:inline-flex;
+}
+li#semester-goals-add {
+    background-color: #57A0BD;
+    border-radius: 30px;
+    position: relative;
+    padding: 4px;
+    padding-left: 13px;
+    text-shadow: 0px 0px 0px;
+    padding-right: 13px;
+    font-size: 30px;
+    font-weight: bold;
+    color: #F4F5F2;
+    box-shadow: -1px -1px 1px #F4F5F2, 1px 1px 1px #447183;
+    position: absolute;
+    right: 10px;
+    top: -9px;
+	transition: background-color .5s;
+}
+li#semester-goals-add:hover {
+cursor:pointer;
+background-color:#396C80;
+}
+li#semester-goals-goal {
+    width: 80%;
+}
