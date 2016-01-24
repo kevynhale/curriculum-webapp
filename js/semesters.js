@@ -19,7 +19,8 @@ $('body').on('click', '.semester-goal-cancel', function() {
         semesterCancel = $(this).attr('newgoal');
 	$(".new-semester-goal-plus[newgoal='" + semesterCancel + "']").remove();
 	newSemesterGoalContainer = document.getElementById('semester-goals-input-row').innerHTML;
-	if (newSemesterGoalContainer == "") {
+	newSemesterGoalRowContainer = document.getElementById('semester-goal-row').innerHTML;
+	if (newSemesterGoalContainer == "" && newSemesterGoalRowContainer == "") {
 		$('#semester-goals-body').append("<div id='semester-no-goals'>No goals have been added.</div>");
 	}
 });
@@ -91,7 +92,8 @@ semesterReview = $('#semester-review').val();
 submitNewSemester(semesterTitle, semesterStart, semesterFinish, semesterReview);
 });
 
-$('body').on('click', '.delete-semester', function() {
+$('body').on('click', '.delete-semester', function(event) {
+	event.stopPropagation()
 semester2delete = $(this).attr('delete');
 if (confirm("Are you sure you want to delete this class? All data will be lost.")) {
 deleteSemester(semester2delete);
@@ -120,6 +122,8 @@ function saveSemesterGoalEntry(id, semesterId) {
       		success: function (response) {
                 		hideLoading(); 
 				$(".new-semester-goal-plus[newgoal='" + id + "']").remove();
+				newSemesterGoalContainer = document.getElementById('semester-goals-input-row').innerHTML;
+				getSemesterListItem('semesterGoals', semesterId)
                 	}
 		});
 

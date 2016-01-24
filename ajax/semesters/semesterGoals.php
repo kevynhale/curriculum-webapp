@@ -27,16 +27,19 @@ $result = $mysqli->query($query);
 
     if ($result->num_rows > 0) {
     // output data of each row
+	    	echo "<div id='semester-goal-row'>";
          while($row = $result->fetch_assoc()) {
 ?>
 		<div class="semester-goal"><?php echo $row['goal']; ?></div>
 <?php
 
 	}
+		echo "</div>";
 }
 	else {
 	
 	echo "<div id='semester-no-goals'>No goals have been added.</div>";
+	echo "<div id='semester-goal-row'></div>";
 	}
 
 
