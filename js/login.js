@@ -20,7 +20,7 @@ function onSignIn(googleUser) {
       success: function (response) {
         var result = response.result;
         if (result == 'success') {
-                window.location = 'https://kevynhale.com/curriculum/main.php';
+                window.location = 'main.php';
         }
         else {
                 $( "#holder" ).load( "ajax/createAccount.php" );
@@ -38,6 +38,7 @@ $('body').on('click', '#createAccount', function() {
       dataType: 'json',
       data: {'id': id, 'token_id':token_id, 'email':email, 'name':name},
       success: function (response) {
+                window.location = 'main.php';
        
         }
       });
