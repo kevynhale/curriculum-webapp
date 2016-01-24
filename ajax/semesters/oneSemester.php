@@ -1,13 +1,14 @@
 <?php include("../../authenticate.php"); ?>
-<div id="new-form2">
-<div id="new-form-container">
 
 <?php
 
 include("../../php/dbConnect.php");
 $id = $_SESSION['id'];
 if (isset($_REQUEST['semester_id'])) { $semester_id = $_REQUEST['semester_id']; }
-
+?>
+<div id="new-form2">
+<div id="new-form-container" semesterid="<?php echo $semester_id; ?>">
+<?php
 $query = "SELECT name, DATE_FORMAT(finish, '%m-%d-%y') AS finish, DATE_FORMAT(start, '%m-%d-%y') as start, overview FROM semester_list WHERE user_id='".$id."' and semester_id = '".$semester_id."'";
 $result = $mysqli->query($query);
     

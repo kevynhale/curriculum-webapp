@@ -590,3 +590,13 @@ div#semester-no-goals {
     font-weight: bold;
     border-bottom: 1px solid #E3E3E3;
 }
+div.semester-body input, div.class-body input {
+    background-color: #CFDBB6;
+    border: 1px solid #6E8933;
+    /* padding: 2px; */
+    font-size: 12px;
+    color: #447183;
+}
+div.semester-body input:focus, div.class-body input:focus {
+	outline: none;
+}
