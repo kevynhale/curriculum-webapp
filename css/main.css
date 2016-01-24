@@ -562,3 +562,31 @@ div.new-semester-goal-plus input[type="text"] {
     border: 1px solid #839A50;
     color: #467384;
 }
+.new-semester-goal-plus:nth-child(even) {
+    background-color: #EDEDED;
+}
+.new-semester-goal-plus:last-of-type {
+    border-bottom: 1px solid #E3E3E3;
+    /* margin-bottom: 5px; */
+    padding-bottom: 15px;
+}
+.semester-goal {
+	padding:5px;
+	color: #57A0BD;
+}
+.semester-goal:nth-child(odd) {
+	background-color: rgb(237, 237, 237);
+}
+.semester-goal:hover {
+	background-color: #B0DA53;
+	cursor: pointer;
+}
+div#semester-no-goals {
+    text-align: center;
+    padding: 5px;
+    margin-top: 5px;
+    background-color: #F4F5F2;
+    color: #D15050;
+    font-weight: bold;
+    border-bottom: 1px solid #E3E3E3;
+}
