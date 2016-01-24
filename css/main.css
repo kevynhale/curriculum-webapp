@@ -366,7 +366,7 @@ transition: background-image 0.2s ease-in-out;
 background-image:url("../images/pencil41.png");
 cursor:pointer;
 }
-.semester-cancel {
+.semester-cancel, .semester-goal-cancel {
 background-image:url("../images/forbidden22-light.png");
 background-size: 15px 15px;
 background-repeat: no-repeat;
@@ -377,11 +377,11 @@ margin-left:3px;
 transition: background-image 0.2s ease-in-out;
 display:none;
 }
-.semester-cancel:hover {
+.semester-cancel:hover, .semester-goal-cancel:hover {
 background-image:url("../images/forbidden22.png");
 cursor:pointer;
 }
-.semester-save {
+.semester-save, .semester-goal-save {
 background-image:url("../images/save31-light.png");
 background-size: 15px 15px;
 background-repeat: no-repeat;
@@ -392,7 +392,7 @@ margin-left:3px;
 transition: background-image 0.2s ease-in-out;
 display: none;
 }
-.semester-save:hover {
+.semester-save:hover, .semester-goal-save:hover {
 background-image:url("../images/save31.png");
 cursor:pointer;
 }
@@ -548,4 +548,17 @@ background-color:#396C80;
 }
 li#semester-goals-goal {
     width: 80%;
+}
+div.new-semester-goal-plus {
+margin-top: 5px;
+padding:5px;
+color: #57A0BD;
+}
+div.new-semester-goal-plus input[type="text"] {
+    width: 80%;
+    background-color: #EDF2E2;
+    font-size: 15px;
+    padding: 5px;
+    border: 1px solid #839A50;
+    color: #467384;
 }

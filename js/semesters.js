@@ -10,8 +10,36 @@ var checkValue;
 var semesterCancel;
 var semesterSave;
 var semesterOptionsView = "semester-options-goals";
+var newSemesterGoalCount = 0;
+var newSemesterGoalContainer = "";
 
 $(document).ready(function(){
+
+$('body').on('click', '.semester-goal-cancel', function() {
+        semesterCancel = $(this).attr('newgoal');
+	$(".new-semester-goal-plus[newgoal='" + semesterCancel + "']").remove();
+	newSemesterGoalContainer = document.getElementById('semester-goals-input-row').innerHTML;
+	if (newSemesterGoalContainer == "") {
+		$('#semester-goals-body').append("<div id='semester-no-goals'>No goals have been added.</div>");
+	}
+});
+
+$('body').on('click', '.semester-goal-save', function() {
+        semesterSave = $(this).attr('newGoal');
+	var semesterGoalId = $('#semester-options-goals').attr('semester-id');
+        saveSemesterGoalEntry(semesterSave, semesterGoalId);
+});
+
+$('body').on('click', '#semester-goals-add', function() {
+	newSemesterGoalCount++;
+	if ($('#semester-no-goals').length > 0) {
+		$('#semester-no-goals').remove();
+	}
+	$('#semester-goals-input-row').append('<div class="new-semester-goal-plus" newGoal="' + newSemesterGoalCount + '"> Goal: <input type="text" newGoal="' + newSemesterGoalCount + '"><div class="semester-goal-save" newGoal="' + newSemesterGoalCount + '" style="display:inline-block;"></div><div class="semester-goal-cancel" newGoal="' + newSemesterGoalCount + '" style="display:inline-block;"></div></div>');
+	newSemesterGoalContainer = document.getElementById('semester-goals-input-row').innerHTML;
+});
+
+
 $('body').on('mouseover', 'ul.navigator-list li', function() {
                                  $("#" + semesterOptionsView).removeClass('navigator-list-selected');
                                 $(this).addClass('navigator-list-selected');
@@ -26,7 +54,8 @@ $('body').on('click', 'ul.navigator-list li', function() {
         $(this).addClass('navigator-list-selected');
 	semesterOptionsView = $(this).attr('id');
 	var page = $("#" + semesterOptionsView).attr('page');
-	getSemesterListItem(page)
+	var semester_id = $(this).attr('semester-id');
+	getSemesterListItem(page, semester_id)
 });
 
 
@@ -79,12 +108,29 @@ $('body').on('click', '.semester-click', function() {
 
 });
 
+function saveSemesterGoalEntry(id, semesterId) {
+	var newId = $("input[newGoal='" + id + "']").val();
+	console.log(newId);
+	showLoading();
+  		$.ajax({
+      		type: "post",
+      		url: "php/newSemesterGoal.php",
+      		dataType: 'json',
+      		data: {'value': newId, 'semester_id': semesterId},
+      		success: function (response) {
+                		hideLoading(); 
+				$(".new-semester-goal-plus[newgoal='" + id + "']").remove();
+                	}
+		});
+
+}
+
 function saveSemesterEntry(option, showId) {
 	var idName = 'semester-edit-' + option + '-input';
 	var value = $('#' + idName).val();
 
 	showLoading();
-  		$.ajax/semesters({
+  		$.ajax({
       		type: "post",
       		url: "php/editChangeSemester.php",
       		dataType: 'json',
@@ -141,7 +187,7 @@ function showSemester(option, view) {
 
 function deleteSemester(semester2delete) {
 showLoading();
-  $.ajax/semesters({
+  $.ajax({
       type: "post",
       url: "php/deleteSemester.php",
       dataType: 'json',
@@ -159,7 +205,7 @@ showLoading();
 
 function submitNewSemester(semesterTitle, semesterStart, semesterFinish, semesterReview) {
 showLoading();
-  $.ajax/semesters({
+  $.ajax({
       type: "post",
       url: "php/submitNewSemester.php",
       dataType: 'json',
@@ -179,8 +225,15 @@ function resetSemesterPage() {
         document.getElementById('filler-body2').innerHTML = '';
         document.getElementById('filler-body2').style.display = 'none';
     }
-function getSemesterListItem(page) {
-	$( ".body-of-content" ).load( "ajax/semesters/" + page + ".php", function() {
+function getSemesterListItem(page, option) {
+	$( ".body-of-content" ).load( "ajax/semesters/" + page + ".php", {'semester_id':option}, function() {
+	
+	if (page == "semesterGoals") {
+		if (newSemesterGoalContainer != '') {
+			$('#semester-no-goals').remove();
+	}
+		document.getElementById('semester-goals-input-row').innerHTML = newSemesterGoalContainer;
+	}
 		hideLoading();
 });
 

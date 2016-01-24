@@ -49,11 +49,11 @@ $result = $mysqli->query($query);
 	<div class="body-of-menu">
 		<div class="navigator-of-menu">
 			<ul class="navigator-list">
-				<li id="semester-options-goals" class="clickable" page="semesterGoals">
+			<li id="semester-options-goals" class="clickable" page="semesterGoals" semester-id="<?php echo $semester_id; ?>">
 					Goals
 				</li>
 
-				<li id="semester-options-class" class="clickable" page="semesterClasses">
+				<li id="semester-options-class" class="clickable" page="semesterClasses" semester-id="<?php echo $semester_id; ?>">
 					Classes
 				</li>
 			</ul>
