@@ -179,7 +179,7 @@ function showSemester(option, view) {
                 toggle_visibility_inline('filler-body2')
 		$('#' + view).toggleClass('navigator-list-selected')
 		var page = $("#" + view).attr('page');
-        	getSemesterListItem(page)
+        	getSemesterListItem(page, option)
                 });
         
 }
