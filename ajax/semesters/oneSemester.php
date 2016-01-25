@@ -34,7 +34,7 @@ $result = $mysqli->query($query);
         <div class="semester-edit" edit="finish"></div>
         <div class="semester-cancel" edit="finish"></div>
         <div class="semester-save" edit="finish"></div><br>
-        <div class="semester-title">Review:</div><br>
+        <div class="semester-title">Review:</div>
         <div class='semester-finish' id="semester-edit-overview" value="<?php echo $row['overview']; ?>" type="textarea">   <?php echo $row['overview']; ?>  </div>
         <div class="semester-edit" edit="overview"></div>
         <div class="semester-cancel" edit="overview"></div>

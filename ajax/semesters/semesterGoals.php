@@ -30,7 +30,7 @@ $result = $mysqli->query($query);
 	    	echo "<div id='semester-goal-row'>";
          while($row = $result->fetch_assoc()) {
 ?>
-		<div class="semester-goal"><?php echo $row['goal']; ?></div>
+		<div class="semester-goal"><div class="semester-goal-name"><?php echo $row['goal']; ?></div><div class="semester-goal-box <?php echo $row['status']; ?>" goalid="<?php echo $row['goal_id']; ?>" status="<?php echo $row['status']; ?>"></div></div>
 <?php
 
 	}

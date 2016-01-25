@@ -600,3 +600,22 @@ div.semester-body input, div.class-body input {
 div.semester-body input:focus, div.class-body input:focus {
 	outline: none;
 }
+.semester-goal-name {
+    width: 82.5%;
+    display: inline-block;
+}
+.semester-goal-box {
+	min-height: 20px;
+	min-width: 20px;
+	max-width: 20px;
+	background-color: white;
+	border: 1px solid #447183;
+	display:inline-block;
+	transition: background-color 1s;
+}
+.semester-goal-box:hover {
+	background-color: #57A0BD;
+}
+.semester-goal-box.checked {
+	background-color: #57A0BD;
+}

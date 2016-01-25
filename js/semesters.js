@@ -25,6 +25,13 @@ $('body').on('click', '.semester-goal-cancel', function() {
 	}
 });
 
+$('body').on('click', '.semester-goal-box', function() {
+	var goalid = $(this).attr('goalid');
+	var goalStatus = $(this).attr('status');
+	var semesterGoalId = $('#semester-options-goals').attr('semester-id');
+	checkSemesterGoal(goalid, semesterGoalId, goalStatus);
+});
+
 $('body').on('click', '.semester-goal-save', function() {
         semesterSave = $(this).attr('newGoal');
 	var semesterGoalId = $('#semester-options-goals').attr('semester-id');
@@ -111,9 +118,24 @@ $('body').on('click', '.semester-click', function() {
 
 });
 
+
+function checkSemesterGoal(id, semesterId, checkStatus) {
+	showLoading();
+  		$.ajax({
+      		type: "post",
+      		url: "php/checkSemesterGoal.php",
+      		dataType: 'json',
+      		data: {'goal_id': id, 'semester_id': semesterId, 'status': checkStatus},
+      		success: function (response) {
+                		hideLoading(); 
+				getSemesterListItem('semesterGoals', semesterId)
+                	}
+		});
+
+}
+
 function saveSemesterGoalEntry(id, semesterId) {
 	var newId = $("input[newGoal='" + id + "']").val();
-	console.log(newId);
 	showLoading();
   		$.ajax({
       		type: "post",

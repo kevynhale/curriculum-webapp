@@ -63,7 +63,7 @@ deleteClass(class2delete);
 
 function deleteClass(class2delete) {
 showLoading();
-  $.ajax/classes({
+  $.ajax({
       type: "post",
       url: "php/deleteClass.php",
       dataType: 'json',
@@ -85,7 +85,7 @@ showLoading();
 
 function submitNewClass(classTitle, classSemester, classCredits, classObjective) {
 showLoading();
-  $.ajax/classes({
+  $.ajax({
       type: "post",
       url: "php/submitNewClass.php",
       dataType: 'json',
@@ -121,7 +121,7 @@ function saveClassEntry(option, showId) {
         var value = $('#' + idName).val();
 
         showLoading();
-                $.ajax/classes({
+                $.ajax({
                 type: "post",
                 url: "php/editChangeClass.php",
                 dataType: 'json',
