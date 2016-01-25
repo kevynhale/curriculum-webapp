@@ -1,12 +1,16 @@
 <?php include("../../authenticate.php"); ?>
-<div id="new-form3">
-<div id="new-form-container">
 
 <?php
 
 include("../../php/dbConnect.php");
 $id = $_SESSION['id'];
 if (isset($_REQUEST['class_id'])) { $class_id = $_REQUEST['class_id']; }
+?>
+
+<div id="new-form3">
+<div id="new-form-container" classid="<?php echo $class_id; ?>">
+
+<?php
 
 $query = "SELECT name, semester, objective FROM class_list WHERE user_id='".$id."' and class_id = '".$class_id."'";
 $result = $mysqli->query($query);

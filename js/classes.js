@@ -23,7 +23,8 @@ $('body').on('click', '.class-cancel', function() {
 
 $('body').on('click', '.class-save', function() {
         classSave = $(this).attr('edit');
-        saveClassEntry(classSave, classId);
+	var classid = $('#new-form-container').attr('classid');
+        saveClassEntry(classSave, classid);
 });
 
 
